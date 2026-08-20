@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>صانع فيديوهات القرآن الكريم</title>
     
-    <!-- خطوط القرآن والواجهة (HTTPS مضمونة) -->
+    <!-- خطوط إسلامية عالية الوضوح -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Tajawal:wght@500;700;800&display=swap" rel="stylesheet">
@@ -13,12 +13,11 @@
 
     <style>
         :root {
-            --bg-body: #070b14;
+            --bg-body: #060913;
             --bg-card: #0f172a;
             --border-color: #1e293b;
             --gold: #f59e0b;
             --gold-gradient: linear-gradient(135deg, #fbbf24, #d97706);
-            --primary: #10b981;
             --primary-gradient: linear-gradient(135deg, #10b981, #059669);
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
@@ -53,7 +52,7 @@
         }
 
         header h1 {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 800;
             background: var(--gold-gradient);
             -webkit-background-clip: text;
@@ -175,7 +174,7 @@
 
         canvas {
             max-width: 100%;
-            max-height: 420px;
+            max-height: 400px;
             border-radius: 6px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.8);
         }
@@ -194,7 +193,6 @@
             justify-content: center;
             gap: 8px;
             margin-top: 8px;
-            transition: 0.2s;
             text-decoration: none;
         }
 
@@ -216,6 +214,7 @@
 
         .status-box {
             display: none;
+            width: 100%;
             background: #070d19;
             border: 1px solid var(--border-color);
             border-radius: 8px;
@@ -248,13 +247,13 @@
 <div class="container">
     <header>
         <h1>✨ صانع فيديوهات القرآن الكريم ✨</h1>
-        <p>توليد وحفظ الفيديوهات القرآنية مباشرة داخل المتصفح وبدون برامج</p>
+        <p>يعمل على الآيباد والآيفون والكمبيوتر مباشرة</p>
     </header>
 
     <div class="grid-layout">
         <!-- الإعدادات -->
         <div class="card">
-            <div class="section-title"><i class="fa-solid fa-book-open"></i> 1. اختيار الآيات</div>
+            <div class="section-title"><i class="fa-solid fa-book-open"></i> 1. الآيات الكريمة</div>
             <div class="form-group">
                 <label>السورة</label>
                 <select id="surahSelect"></select>
@@ -270,19 +269,20 @@
                 </div>
             </div>
 
-            <div class="section-title"><i class="fa-solid fa-microphone"></i> 2. القارئ</div>
+            <div class="section-title"><i class="fa-solid fa-microphone"></i> 2. صوت القارئ</div>
             <div class="form-group">
                 <select id="reciterSelect">
-                    <option value="ar.alafasy">مشاري راشد العفاسي</option>
-                    <option value="ar.abdulbasitmurattal">عبد الباسط عبد الصمد (مرتل)</option>
-                    <option value="ar.minshawi">محمد صديق المنشاوي (مرتل)</option>
-                    <option value="ar.husary">محمود خليل الحصري</option>
-                    <option value="ar.hudhaify">علي الحذيفي</option>
-                    <option value="ar.saoodshuraym">سعود الشريم</option>
+                    <option value="Alafasy_128kbps">مشاري راشد العفاسي</option>
+                    <option value="Abdul_Basit_Murattal_192kbps">عبد الباسط عبد الصمد (مرتل)</option>
+                    <option value="Minshawy_Murattal_128kbps">محمد صديق المنشاوي (مرتل)</option>
+                    <option value="Husary_128kbps">محمود خليل الحصري</option>
+                    <option value="Hudhaify_128kbps">علي بن عبد الرحمن الحذيفي</option>
+                    <option value="Saood_ash-Shuraym_128kbps">سعود الشريم</option>
+                    <option value="MaherAlMuaiqly128kbps">ماهر المعيقلي</option>
                 </select>
             </div>
 
-            <div class="section-title"><i class="fa-solid fa-palette"></i> 3. المظهر والخلفية</div>
+            <div class="section-title"><i class="fa-solid fa-palette"></i> 3. مظهر وخلفية الفيديو</div>
             <label>أبعاد الفيديو</label>
             <div class="ratio-btns">
                 <div class="ratio-btn active" data-w="720" data-h="1280">📱 ريلز / تيك توك (9:16)</div>
@@ -290,16 +290,14 @@
                 <div class="ratio-btn" data-w="720" data-h="720">⏹️ مربع (1:1)</div>
             </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label>نمط الخلفية (متحركة تلقائياً)</label>
-                    <select id="bgTheme">
-                        <option value="stars">✨ سماء ليلية ونجوم متحركة</option>
-                        <option value="emerald">🌿 محراب زمردي خاشع</option>
-                        <option value="sunset">🌅 شفق وغروب ذهبي</option>
-                        <option value="custom">📁 رفع صورة من جهازك...</option>
-                    </select>
-                </div>
+            <div class="form-group">
+                <label>نمط الخلفية</label>
+                <select id="bgTheme">
+                    <option value="stars">✨ سماء ليلية ونجوم متحركة</option>
+                    <option value="emerald">🌿 محراب زمردي إسلامي</option>
+                    <option value="sunset">🌅 شفق وغروب خاشع</option>
+                    <option value="custom">📁 رفع صورة من جهازك...</option>
+                </select>
             </div>
 
             <div class="form-group" id="uploadGroup" style="display: none;">
@@ -322,11 +320,11 @@
             </div>
 
             <button class="btn btn-generate" id="startBtn">
-                <i class="fa-solid fa-film"></i> ابدأ إنشاء وتوليد الفيديو
+                <i class="fa-solid fa-film"></i> ابدأ إنشاء وحفظ الفيديو
             </button>
 
             <a class="btn btn-download" id="downloadBtn" target="_blank">
-                <i class="fa-solid fa-download"></i> حفظ الفيديو على جهازك
+                <i class="fa-solid fa-download"></i> حفظ وتنزيل الفيديو 📥
             </a>
 
             <div class="status-box" id="statusBox">
@@ -335,6 +333,8 @@
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
             </div>
+
+            <audio id="globalAudio" playsinline crossOrigin="anonymous" style="display: none;"></audio>
         </div>
     </div>
 </div>
@@ -353,6 +353,7 @@
     const statusBox = document.getElementById('statusBox');
     const statusText = document.getElementById('statusText');
     const progressFill = document.getElementById('progressFill');
+    const globalAudio = document.getElementById('globalAudio');
 
     const canvas = document.getElementById('videoCanvas');
     const ctx = canvas.getContext('2d');
@@ -362,37 +363,41 @@
     let currentAyahIndex = 0;
     let customImg = null;
 
-    // محرك النجوم التفاعلي
+    // نجوم متحركة للخلفية
     let stars = [];
-    for(let i=0; i<80; i++) {
+    for(let i=0; i<70; i++) {
         stars.push({
             x: Math.random() * 1280,
             y: Math.random() * 1280,
             size: Math.random() * 2 + 1,
-            speed: Math.random() * 0.4 + 0.1,
-            opacity: Math.random()
+            speed: Math.random() * 0.4 + 0.1
         });
     }
 
-    // تهيئة الصوت والمسارات
+    // تجهيز الصوت للربط بالتسجيل
     let audioCtx = null;
-    let currentSource = null;
-    let mediaDest = null;
-    let mediaRecorder = null;
-    let recordedChunks = [];
+    let audioDest = null;
+    let audioSourceNode = null;
 
-    function initAudio() {
+    function setupAudioSystem() {
         if (!audioCtx) {
-            const AC = window.AudioContext || window.webkitAudioContext;
-            audioCtx = new AC();
-            mediaDest = audioCtx.createMediaStreamDestination();
+            try {
+                const AC = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AC();
+                audioDest = audioCtx.createMediaStreamDestination();
+                audioSourceNode = audioCtx.createMediaElementSource(globalAudio);
+                audioSourceNode.connect(audioCtx.destination);
+                audioSourceNode.connect(audioDest);
+            } catch(e) {
+                console.log("AudioContext fallback:", e);
+            }
         }
-        if (audioCtx.state === 'suspended') {
+        if (audioCtx && audioCtx.state === 'suspended') {
             audioCtx.resume();
         }
     }
 
-    // 1. تحميل السور
+    // 1. جلب قائمة السور
     async function loadSurahs() {
         try {
             const res = await fetch('https://api.alquran.cloud/v1/surah');
@@ -404,7 +409,7 @@
             updateLimits();
         } catch(e) {
             statusBox.style.display = 'block';
-            statusText.innerText = 'فشل جلب قائمة السور، تحقق من الإنترنت.';
+            statusText.innerText = 'فشل جلب قائمة السور، تحقق من الاتصال بالإنترنت.';
         }
     }
 
@@ -452,20 +457,45 @@
         }
     });
 
-    // 4. محرك رسم الكانفاس المتواصل (Procedural Drawing Engine)
+    // 4. محرك الرسم المتواصل
     function render() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // رسم الخلفية برمجياً لمنع أي مشكلة CORS
+        // رسم الخلفية
         if (customImg && customImg.complete) {
             ctx.drawImage(customImg, 0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "rgba(0, 0, 0, 0.65)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
         } else {
-            drawProceduralBackground();
+            const type = bgTheme.value;
+            const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+
+            if (type === 'emerald') {
+                grad.addColorStop(0, '#021c14');
+                grad.addColorStop(1, '#063828');
+            } else if (type === 'sunset') {
+                grad.addColorStop(0, '#1a0b1e');
+                grad.addColorStop(1, '#3b1820');
+            } else {
+                grad.addColorStop(0, '#050914');
+                grad.addColorStop(1, '#0f172a');
+            }
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#ffffff";
+            stars.forEach(st => {
+                st.y -= st.speed;
+                if(st.y < 0) st.y = canvas.height;
+                ctx.globalAlpha = Math.sin(Date.now() * 0.002 + st.x) * 0.5 + 0.5;
+                ctx.beginPath();
+                ctx.arc((st.x % canvas.width), st.y, st.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            ctx.globalAlpha = 1.0;
         }
 
-        // إطار وزخرفة
+        // إطار ذهبي
         ctx.strokeStyle = "rgba(245, 158, 11, 0.3)";
         ctx.lineWidth = 3;
         ctx.strokeRect(15, 15, canvas.width - 30, canvas.height - 30);
@@ -484,15 +514,15 @@
             const ayah = ayahsData[currentAyahIndex];
             const text = `${ayah.text} ﴿${ayah.numberInSurah}﴾`;
             
-            ctx.font = '40px "Amiri Quran", serif';
+            ctx.font = '38px "Amiri Quran", serif';
             ctx.fillStyle = '#ffffff';
             ctx.shadowColor = "black";
             ctx.shadowBlur = 10;
             
-            wrapText(ctx, text, canvas.width / 2, canvas.height / 2 - 20, canvas.width - 80, 68);
+            wrapText(ctx, text, canvas.width / 2, canvas.height / 2 - 20, canvas.width - 80, 66);
         }
 
-        // الحقوق السفلية
+        // الحقوق
         if(watermark.value.trim()) {
             ctx.font = '18px "Tajawal", sans-serif';
             ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
@@ -500,37 +530,6 @@
         }
 
         requestAnimationFrame(render);
-    }
-
-    function drawProceduralBackground() {
-        const type = bgTheme.value;
-        const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
-
-        if (type === 'emerald') {
-            grad.addColorStop(0, '#021c14');
-            grad.addColorStop(1, '#063828');
-        } else if (type === 'sunset') {
-            grad.addColorStop(0, '#1a0b1e');
-            grad.addColorStop(1, '#3b1820');
-        } else {
-            // Stars / Cosmic
-            grad.addColorStop(0, '#050914');
-            grad.addColorStop(1, '#0f172a');
-        }
-        ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        // حركة النجوم
-        ctx.fillStyle = "#ffffff";
-        stars.forEach(st => {
-            st.y -= st.speed;
-            if(st.y < 0) st.y = canvas.height;
-            ctx.globalAlpha = Math.sin(Date.now() * 0.002 + st.x) * 0.5 + 0.5;
-            ctx.beginPath();
-            ctx.arc((st.x % canvas.width), st.y, st.size, 0, Math.PI * 2);
-            ctx.fill();
-        });
-        ctx.globalAlpha = 1.0;
     }
 
     function wrapText(context, text, x, y, maxWidth, lineHeight) {
@@ -554,95 +553,120 @@
         }
     }
 
-    // 5. تشغيل مقطع الآية بصيغة باينري
-    async function playAyahBuffer(url) {
-        initAudio();
-        const res = await fetch(url);
-        const buffer = await res.arrayBuffer();
-        const audioBuffer = await audioCtx.decodeAudioData(buffer);
-
-        const src = audioCtx.createBufferSource();
-        src.buffer = audioBuffer;
-        src.connect(audioCtx.destination);
-        if(mediaDest) src.connect(mediaDest);
-        currentSource = src;
-
-        return new Promise(resolve => {
-            src.onended = () => resolve();
-            src.start(0);
+    // دالة تشغيل كل آية بالتتابع
+    function playAyahAudio(url) {
+        return new Promise((resolve) => {
+            globalAudio.src = url;
+            globalAudio.onended = () => resolve();
+            globalAudio.onerror = () => {
+                console.warn("تخطي آية بسبب تعذر الملف الصوتي");
+                resolve();
+            };
+            globalAudio.play().catch(() => resolve());
         });
     }
 
-    // 6. زر توليد وتسجيل الفيديو
+    // 5. بدء التوليد
     startBtn.addEventListener('click', async () => {
-        initAudio();
+        setupAudioSystem();
         startBtn.disabled = true;
         downloadBtn.style.display = 'none';
         statusBox.style.display = 'block';
-        statusText.innerText = "جاري تحميل بيانات التلاوة...";
+        statusText.innerText = "جاري جلب نصوص الآيات...";
 
-        const sNum = surahSelect.value;
+        const sNum = parseInt(surahSelect.value);
         const reciter = reciterSelect.value;
         const start = parseInt(fromAyah.value);
         const end = parseInt(toAyah.value);
 
+        if(start > end) {
+            statusText.innerText = "تأكد من أن آية البداية أقل من آية النهاية.";
+            startBtn.disabled = false;
+            return;
+        }
+
         try {
-            const res = await fetch(`https://api.alquran.cloud/v1/surah/${sNum}/${reciter}`);
+            // جلب النص القرآني بالرسم العثماني
+            const res = await fetch(`https://api.alquran.cloud/v1/surah/${sNum}/quran-uthmani`);
             const data = await res.json();
-            ayahsData = data.data.ayahs.filter(a => a.numberInSurah >= start && a.numberInSurah <= end);
+            
+            const rawAyahs = data.data.ayahs.filter(a => a.numberInSurah >= start && a.numberInSurah <= end);
+            
+            // توليد روابط الصوت من سيرفر EveryAyah المفتوح
+            ayahsData = rawAyahs.map(a => {
+                const sPad = String(sNum).padStart(3, '0');
+                const aPad = String(a.numberInSurah).padStart(3, '0');
+                return {
+                    text: a.text,
+                    numberInSurah: a.numberInSurah,
+                    audioUrl: `https://everyayah.com/data/${reciter}/${sPad}${aPad}.mp3`
+                };
+            });
 
-            // تجهيز مسار التسجيل المدمج
+            // تجهيز بث التسجيل
             const canvasStream = canvas.captureStream(30);
-            const combined = new MediaStream([
-                ...canvasStream.getVideoTracks(),
-                ...mediaDest.stream.getAudioTracks()
-            ]);
-
-            // اختيار أفضل ترميز متاح للجهاز (MP4 للآيباد و WebM للكمبيوتر)
-            let mime = 'video/mp4';
-            if (!MediaRecorder.isTypeSupported('video/mp4')) {
-                mime = 'video/webm';
+            let combinedTracks = [...canvasStream.getVideoTracks()];
+            if (audioDest && audioDest.stream) {
+                combinedTracks.push(...audioDest.stream.getAudioTracks());
             }
 
-            recordedChunks = [];
-            mediaRecorder = new MediaRecorder(combined, { mimeType: mime });
+            const combinedStream = new MediaStream(combinedTracks);
+
+            // تحديد ترميز الفيديو المدعوم
+            let options = {};
+            if (typeof MediaRecorder.isTypeSupported === 'function') {
+                if (MediaRecorder.isTypeSupported('video/mp4;codecs=avc1')) {
+                    options = { mimeType: 'video/mp4;codecs=avc1' };
+                } else if (MediaRecorder.isTypeSupported('video/mp4')) {
+                    options = { mimeType: 'video/mp4' };
+                } else if (MediaRecorder.isTypeSupported('video/webm;codecs=vp9')) {
+                    options = { mimeType: 'video/webm;codecs=vp9' };
+                } else if (MediaRecorder.isTypeSupported('video/webm')) {
+                    options = { mimeType: 'video/webm' };
+                }
+            }
+
+            let recordedChunks = [];
+            let mediaRecorder = new MediaRecorder(combinedStream, options);
 
             mediaRecorder.ondataavailable = (e) => {
-                if(e.data.size > 0) recordedChunks.push(e.data);
+                if(e.data && e.data.size > 0) recordedChunks.push(e.data);
             };
 
             mediaRecorder.onstop = () => {
-                const ext = mime.includes('mp4') ? 'mp4' : 'webm';
-                const blob = new Blob(recordedChunks, { type: mime });
+                const mimeType = mediaRecorder.mimeType || 'video/mp4';
+                const ext = mimeType.includes('webm') ? 'webm' : 'mp4';
+                const blob = new Blob(recordedChunks, { type: mimeType });
                 const url = URL.createObjectURL(blob);
 
                 downloadBtn.href = url;
-                downloadBtn.download = `Quran_${sNum}_ayahs_${start}-${end}.${ext}`;
+                downloadBtn.download = `Quran_${sNum}_Ayah_${start}-${end}.${ext}`;
                 downloadBtn.style.display = 'flex';
-                statusText.innerText = "✅ تم إنشاء الفيديو بنجاح! اضغط للتحميل.";
+                statusText.innerText = "✅ تم توليد الفيديو بنجاح! اضغط للتحميل.";
                 startBtn.disabled = false;
             };
 
             mediaRecorder.start();
-            
-            // تشغيل الآيات بالتتابع
+
+            // التلاوة والتسجيل آية بعد آية
             for(let i=0; i<ayahsData.length; i++) {
                 currentAyahIndex = i;
                 const percent = ((i + 1) / ayahsData.length) * 100;
                 progressFill.style.width = `${percent}%`;
-                statusText.innerText = `جاري تلاوة وتسجيل الآية (${ayahsData[i].numberInSurah})...`;
-                await playAyahBuffer(ayahsData[i].audio);
+                statusText.innerText = `جاري تسجيل الآية (${ayahsData[i].numberInSurah})... [${i+1} من ${ayahsData.length}]`;
+                await playAyahAudio(ayahsData[i].audioUrl);
             }
 
             mediaRecorder.stop();
 
         } catch (err) {
-            statusText.innerText = "حدث خطأ أثناء المعالجة، تأكد من الاتصال.";
+            console.error(err);
+            statusText.innerText = "خطأ أثناء التوليد: " + (err.message || err);
             startBtn.disabled = false;
         }
     });
 
-    // الإقلاع
+    // التشغيل المبدئي
     loadSurahs();
     render();
 </script>
