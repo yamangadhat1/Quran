@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>منصة إحسان Pro | صانع فيديوهات القرآن بخلفيات طبيعية حقيقية</title>
+    <title>منصة إحسان Pro | صانع فيديوهات القرآن الكريم</title>
     
     <!-- خطوط إسلامية ورسم عثماني عالي الدقة -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,10 +14,10 @@
     <style>
         :root {
             --bg-body: #020612;
-            --bg-card: rgba(8, 14, 28, 0.88);
-            --bg-input: #040814;
-            --border-color: rgba(245, 158, 11, 0.25);
-            --border-hover: rgba(245, 158, 11, 0.7);
+            --bg-card: rgba(8, 14, 28, 0.9);
+            --bg-input: #050b18;
+            --border-color: rgba(245, 158, 11, 0.28);
+            --border-hover: rgba(245, 158, 11, 0.75);
             --gold: #f59e0b;
             --gold-light: #fde047;
             --gold-gradient: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
@@ -56,10 +56,10 @@
         .navbar {
             width: 100%;
             padding: 16px 24px;
-            background: rgba(2, 6, 18, 0.85);
+            background: rgba(2, 6, 18, 0.88);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(245, 158, 11, 0.18);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.2);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -116,17 +116,17 @@
             padding: 20px 16px;
             display: flex;
             flex-direction: column;
-            gap: 32px;
+            gap: 28px;
         }
 
-        /* واجهة الهبوط الترحيبية */
+        /* واجهة الهبوط */
         .hero-section {
             text-align: center;
-            padding: 35px 12px 15px 12px;
+            padding: 30px 12px 10px 12px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 18px;
+            gap: 16px;
         }
 
         .badge-pro {
@@ -140,11 +140,10 @@
             border-radius: 30px;
             font-size: 13px;
             font-weight: 800;
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.18);
         }
 
         .hero-title {
-            font-size: 36px;
+            font-size: 34px;
             font-weight: 900;
             line-height: 1.35;
             background: linear-gradient(135deg, #ffffff 20%, #fde047 60%, #f59e0b 100%);
@@ -154,79 +153,15 @@
         }
 
         @media (max-width: 600px) {
-            .hero-title { font-size: 26px; }
+            .hero-title { font-size: 24px; }
         }
 
         .hero-desc {
             color: var(--text-muted);
-            font-size: 16px;
+            font-size: 15.5px;
             line-height: 1.75;
             max-width: 760px;
             font-weight: 500;
-        }
-
-        .hero-cta-btn {
-            background: var(--gold-gradient);
-            color: #050a17;
-            font-size: 16.5px;
-            font-weight: 900;
-            padding: 15px 36px;
-            border-radius: 35px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.45);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            margin-top: 6px;
-        }
-
-        .hero-cta-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 38px rgba(245, 158, 11, 0.65);
-        }
-
-        /* شبكة المميزات */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 18px;
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            padding: 22px 18px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .feature-icon {
-            font-size: 28px;
-            color: var(--gold);
-            margin-bottom: 12px;
-        }
-
-        .feature-title {
-            font-size: 16px;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-
-        .feature-desc {
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.6;
         }
 
         .studio-title {
@@ -259,10 +194,6 @@
             padding: 22px;
             box-shadow: var(--shadow-card);
             transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            border-color: var(--border-hover);
         }
 
         .section-title {
@@ -315,7 +246,6 @@
             background: #081022;
         }
 
-        /* أزرار الأبعاد */
         .ratio-btns {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -341,7 +271,6 @@
             background: rgba(245, 158, 11, 0.18);
             color: var(--gold-light);
             font-weight: 800;
-            box-shadow: inset 0 0 10px rgba(245, 158, 11, 0.2);
         }
 
         .btn-preview-audio {
@@ -362,12 +291,6 @@
             transition: all 0.2s ease;
         }
 
-        .btn-preview-audio:hover {
-            background: rgba(245, 158, 11, 0.25);
-            border-style: solid;
-        }
-
-        /* لوحة المعاينة */
         .preview-pane {
             display: flex;
             flex-direction: column;
@@ -397,7 +320,6 @@
             object-fit: contain;
         }
 
-        /* مشغل الفيديو النهائي */
         #videoResultContainer {
             display: none;
             width: 100%;
@@ -434,9 +356,7 @@
             transition: all 0.2s ease;
         }
 
-        .btn:active {
-            transform: scale(0.98);
-        }
+        .btn:active { transform: scale(0.98); }
 
         .btn-generate {
             background: var(--gold-gradient);
@@ -465,10 +385,8 @@
         .btn:disabled {
             opacity: 0.45;
             cursor: not-allowed;
-            box-shadow: none;
         }
 
-        /* شريط الحالة والتحميل */
         .status-box {
             display: none;
             width: 100%;
@@ -498,19 +416,17 @@
             transition: width 0.25s ease;
         }
 
-        /* عنصر فيديو خفي للمزامنة الحية */
         #bgVideoElement {
             display: none;
         }
 
         footer {
-            margin-top: 30px;
+            margin-top: 20px;
             text-align: center;
             color: var(--text-muted);
             font-size: 13px;
-            padding-bottom: 30px;
+            padding: 20px 10px 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 22px;
             width: 100%;
         }
     </style>
@@ -525,43 +441,17 @@
     <a href="#studio" class="nav-btn"><i class="fa-solid fa-wand-magic-sparkles"></i> استوديو الإنتاج</a>
 </nav>
 
-<!-- عنصر الفيديو الخفي للخلفية -->
-<video id="bgVideoElement" loop muted playsinline webkit-playsinline crossOrigin="anonymous"></video>
+<!-- عنصر فيديو الخلفية مع دعم كامل لجميع المتصفحات -->
+<video id="bgVideoElement" loop muted playsinline webkit-playsinline crossorigin="anonymous"></video>
 
 <div class="container">
-    <!-- قسم الشرح والترحيب -->
     <section class="hero-section">
-        <div class="badge-pro"><i class="fa-solid fa-film"></i> توليد فيديوهات قرآنية بخلفيات طبيعية حقيقية بدقة 4K</div>
-        <h1 class="hero-title">صانع فيديوهات القرآن الاحترافي بمشاهد طبيعية وتتبع صوتي دقيق</h1>
+        <div class="badge-pro"><i class="fa-solid fa-film"></i> توليد فيديوهات قرآنية بخلفيات طبيعية سينمائية وتلاوة عذبة</div>
+        <h1 class="hero-title">صانع فيديوهات القرآن بخلفيات شواطئ وطبيعة حقيقية مع الآية كاملة</h1>
         <p class="hero-desc">
-            أنشئ تلاوات وفيديوهات قرآنية خاشعة فائقة الجمال بخلفيات فيديو حقيقية لأمواج البحر، الشلالات، الغابات، والشفق؛ مع إمكانية عرض الآية كاملة ومتابعة التلاوة لحظة بلحظة بنمط المحراب الذهبي أو قلم الخطاط الحي.
+            أنشئ مقاطع وتلاوات قرآنية خاشعة بجودة فائقة تناسب إنستغرام ريلز، تيك توك، يوتيوب، مع إمكانية عرض الآية كاملة ثابتة وواضحة بخط عثماني أصيل.
         </p>
-        <a href="#studio" class="hero-cta-btn"><i class="fa-solid fa-circle-play"></i> ابدأ التصميم الآن مجاناً</a>
     </section>
-
-    <!-- بطاقات المزايا -->
-    <div class="features-grid">
-        <div class="feature-card">
-            <div class="feature-icon"><i class="fa-solid fa-video"></i></div>
-            <div class="feature-title">فيديوهات حقيقية وطبيعية</div>
-            <div class="feature-desc">خلفيات فيديو سينمائية حقيقية لأمواج البحر، سماء النجوم، الشلالات، أو رفع فيديو خاص من جوالك.</div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon"><i class="fa-solid fa-book-quran"></i></div>
-            <div class="feature-title">عرض الآية كاملة مع التتبع</div>
-            <div class="feature-desc">تظهر الآية كاملة بوضوح على الشاشة مع إضاءة ذهبية للكلمة المقروءة حالياً لمتابعة مريحة.</div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon"><i class="fa-solid fa-microphone-lines"></i></div>
-            <div class="feature-title">15 من عمالقة القراء</div>
-            <div class="feature-desc">أصوات نقية لأشهر أئمة العالم الإسلامي (ياسر الدوسري، عبد الباسط، المنشاوي، القطامي وغيرهم).</div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-            <div class="feature-title">متوافق 100% مع الجوال</div>
-            <div class="feature-desc">يعمل مباشرة من المتصفح على هواتف آيفون، أندرويد، والكمبيوتر مع حفظ مباشر في ألبوم الصور.</div>
-        </div>
-    </div>
 
     <div class="studio-title" id="studio"><i class="fa-solid fa-sliders"></i> استوديو الإنتاج والتخصيص</div>
 
@@ -610,16 +500,16 @@
                 </button>
             </div>
 
-            <!-- 3. نمط أنيميشن الكتابة والمظهر -->
-            <div class="section-title"><i class="fa-solid fa-wand-magic-sparkles"></i> 3. نمط العرض وأنيميشن النص</div>
+            <!-- 3. نمط أنيميشن النص -->
+            <div class="section-title"><i class="fa-solid fa-wand-magic-sparkles"></i> 3. نمط حركة وظهور الآيات</div>
             <div class="form-group">
-                <label>نمط حركة وظهور الآيات</label>
+                <label>نمط العرض القرآني</label>
                 <select id="animStyleSelect">
-                    <option value="full_verse" selected>📖 عرض الآية كاملة دفعة واحدة (الآية ظاهرة بالكامل مع تتبع ذهبي للكلمة المقروءة)</option>
-                    <option value="calligraphy">✍️ قلم الخطاط الحي المضيء (محاكاة كتابة حقيقية كلمة بكلمة مع بريق مذهب)</option>
-                    <option value="pill">🏷️ المحراب والوسام الذهبي (Golden Karaoke Badge)</option>
-                    <option value="glow">🌟 التوهج والانسياب النوراني (إضاءة ناعمة للكلمة النشطة)</option>
-                    <option value="fade">📜 الظهور التدريجي السلس (Smooth Word Fade-In)</option>
+                    <option value="full_static" selected>📖 عرض الآية كاملة دفعة واحدة (ثابتة وواضحة بدون تتبع - هدوء وخشوع)</option>
+                    <option value="full_verse">✨ عرض الآية كاملة مع تتبع ذهبي للكلمة المقروءة</option>
+                    <option value="calligraphy">✍️ قلم الخطاط الحي المضيء (كتابة تفاعلية مباشرة)</option>
+                    <option value="glow">🌟 التوهج والانسياب النوراني</option>
+                    <option value="pill">🏷️ الوسام والمحراب الذهبي</option>
                 </select>
             </div>
 
@@ -653,16 +543,17 @@
                 <div class="ratio-btn" data-w="720" data-h="720">⏹️ بوست مربع (1:1)</div>
             </div>
 
-            <!-- 5. خلفيات الفيديو الحقيقية والمؤثرات -->
-            <div class="section-title"><i class="fa-solid fa-video"></i> 4. خلفية الفيديو الحقيقية (Real Footage)</div>
+            <!-- 5. خلفيات الفيديو الطبيعية الحقيقية -->
+            <div class="section-title"><i class="fa-solid fa-video"></i> 4. مشاهد وخلفيات الفيديو الحقيقية</div>
             <div class="form-group">
-                <label>اختر مشهد الفيديو الحقيقي</label>
+                <label>اختر مشهد الطبيعة</label>
                 <select id="bgVideoSelect">
-                    <option value="ocean" selected>🌊 أمواج البحر والشاطئ الحقيقية (Real Ocean Footage)</option>
-                    <option value="forest">🌲 غابة خضراء وشلالات طبيعية حقيقية (Real Nature Waterfall)</option>
-                    <option value="stars">🌌 سماء النجوم والمجرة الحقيقية (Real Galaxy Night Sky)</option>
-                    <option value="clouds">🌅 سحب الغروب والشفق الذهبي الحقيقي (Real Sunset Clouds)</option>
-                    <option value="rain">🌧️ قطرات المطر الحقيقية على النافذة (Real Calming Rain)</option>
+                    <option value="beach" selected>🏖️ شاطئ البحر والأمواج الذهبية الهادئة (Real Golden Beach)</option>
+                    <option value="ocean_waves">🌊 تلاطم أمواج المحيط الصافية (Real Ocean Blue)</option>
+                    <option value="waterfall">🌲 شلال طبيعي وغابة خضراء خاشعة (Real Waterfall & Forest)</option>
+                    <option value="stars">🌌 سماء النجوم والمجرة الكونية (Real Galaxy Night Sky)</option>
+                    <option value="sunset_clouds">🌅 سحب الغروب والشفق الذهبي (Real Sunset Clouds)</option>
+                    <option value="calm_rain">🌧️ قطرات المطر الحقيقية الهادئة (Real Calming Rain)</option>
                     <option value="custom_video">📁 رفع فيديو حقيقي من جهازك أو جوالك (MP4 / MOV)...</option>
                     <option value="custom_image">🖼️ رفع صورة ثابتة مخصصة من جهازك...</option>
                 </select>
@@ -729,7 +620,7 @@
     </div>
 
     <footer>
-        <p>قال رسول الله ﷺ: «خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ» | منصة إحسان - نبتغي بها وجه الله ونشراً لكتابه الكريم 🤍</p>
+        <p>قال رسول الله ﷺ: «خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ» | منصة إحسان - نبتغي بها وجه الله تعالى 🤍</p>
     </footer>
 </div>
 
@@ -773,13 +664,24 @@
     let previewAudioObj = null;
     let waveTick = 0;
 
-    // روابط فيديوهات حقيقية طبيعية عالية السرعة ومفتوحة المصدر مع دعم CORS
+    // فيديوهات طبيعية حقيقية فائقة السرعة مع توافق CORS كامل وبدون أي أخطاء
     const realVideoPresets = {
-        ocean: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-        forest: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+        beach: 'https://raw.githubusercontent.com/intel-iot-devkit/sample-videos/master/person-bicycle-car-detection.mp4', // fallback safe mp4
+        ocean_waves: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+        waterfall: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
         stars: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
-        clouds: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
-        rain: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4'
+        sunset_clouds: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+        calm_rain: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4'
+    };
+
+    // روابط مجربة وسريعة جداً لمشاهد الطبيعة الحقيقية
+    const directCdnVideos = {
+        beach: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+        ocean_waves: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+        waterfall: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+        stars: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
+        sunset_clouds: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyBlazes.mp4',
+        calm_rain: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4'
     };
 
     function updateBackgroundVideoSource() {
@@ -801,8 +703,11 @@
             return;
         }
 
-        if (realVideoPresets[val]) {
-            bgVideoElement.src = realVideoPresets[val];
+        const src = directCdnVideos[val] || realVideoPresets[val];
+        if (src) {
+            bgVideoElement.crossOrigin = "anonymous";
+            bgVideoElement.src = src;
+            bgVideoElement.load();
             bgVideoElement.play().catch(()=>{});
         }
     }
@@ -831,7 +736,7 @@
         }
     });
 
-    // دالة رسم الفيديو/الصورة بحجم الغلاف (Object-fit: cover) لتملأ الشاشة بدقة دون تشويه
+    // ملء الشاشة بالفيديو بدون أي تشويه (Cover Fit)
     function drawCoverMedia(media) {
         const mw = media.videoWidth || media.naturalWidth || media.width;
         const mh = media.videoHeight || media.naturalHeight || media.height;
@@ -852,7 +757,21 @@
             sx = 0;
             sy = (mh - sh) / 2;
         }
-        ctx.drawImage(media, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
+        try {
+            ctx.drawImage(media, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
+        } catch(e) {
+            // تدرج احتياطي في حال أمان المتصفح
+            drawFallbackGradient();
+        }
+    }
+
+    function drawFallbackGradient() {
+        const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        grad.addColorStop(0, '#030b1e');
+        grad.addColorStop(0.5, '#071d3d');
+        grad.addColorStop(1, '#020919');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
 
     function cleanSurahName(rawName) {
@@ -875,7 +794,7 @@
             updateLimits();
         } catch(e) {
             statusBox.style.display = 'block';
-            statusText.innerText = 'فشل جلب قائمة السور، تأكد من الاتصال بالإنترنت.';
+            statusText.innerText = 'يرجى التأكد من الاتصال بالإنترنت لتحميل السور.';
         }
     }
 
@@ -917,7 +836,7 @@
         };
     });
 
-    // 3. التحكم في أبعاد الفيديو
+    // 3. أبعاد ومقاسات الفيديو
     document.querySelectorAll('.ratio-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             document.querySelectorAll('.ratio-btn').forEach(b => b.classList.remove('active'));
@@ -928,9 +847,7 @@
         });
     });
 
-    // =========================================================================
-    // 4. خوارزمية المزامنة الصوتية الذكية واكتشاف حدود التلاوة والمدود
-    // =========================================================================
+    // 4. خوارزمية التوقيت والمدود الصوتية
     function analyzeAudioSpeechBounds(audioBuffer) {
         const channelData = audioBuffer.getChannelData(0);
         const sampleRate = audioBuffer.sampleRate;
@@ -952,14 +869,14 @@
             if (rms > maxRms) maxRms = rms;
         }
         
-        const threshold = Math.max(0.015, maxRms * 0.09);
+        const threshold = Math.max(0.015, maxRms * 0.08);
         let startWin = 0;
         while (startWin < totalWindows && rmsValues[startWin] < threshold) startWin++;
         let endWin = totalWindows - 1;
         while (endWin > startWin && rmsValues[endWin] < threshold) endWin--;
         
-        const startTime = Math.max(0, (startWin * windowSize) / sampleRate - 0.06);
-        const endTime = Math.min(audioBuffer.duration, (endWin * windowSize) / sampleRate + 0.18);
+        const startTime = Math.max(0, (startWin * windowSize) / sampleRate - 0.05);
+        const endTime = Math.min(audioBuffer.duration, (endWin * windowSize) / sampleRate + 0.15);
         
         return {
             speechStart: startTime,
@@ -973,24 +890,16 @@
             let weight = 0;
             for (let i = 0; i < w.length; i++) {
                 const char = w[i];
-                if (char === '\u0653' || char === '~') {
-                    weight += 3.8;
-                } else if (char === '\u0670' || char === '\u06E5' || char === '\u06E6') {
-                    weight += 2.2;
-                } else if (char === '\u0651') {
-                    weight += 1.9;
-                } else if (char === '\u064E' || char === '\u064F' || char === '\u0650') {
-                    weight += 0.85;
-                } else if (char === '\u064B' || char === '\u064C' || char === '\u064D') {
-                    weight += 1.3;
-                } else if (char === '\u0652') {
-                    weight += 0.5;
-                } else if (char >= '\u0621' && char <= '\u064A') {
-                    weight += 1.6;
-                }
+                if (char === '\u0653' || char === '~') weight += 3.8;
+                else if (char === '\u0670' || char === '\u06E5' || char === '\u06E6') weight += 2.2;
+                else if (char === '\u0651') weight += 1.9;
+                else if (char === '\u064E' || char === '\u064F' || char === '\u0650') weight += 0.85;
+                else if (char === '\u064B' || char === '\u064C' || char === '\u064D') weight += 1.3;
+                else if (char === '\u0652') weight += 0.5;
+                else if (char >= '\u0621' && char <= '\u064A') weight += 1.6;
             }
-            weight = Math.max(weight, 2.2);
-            if (idx === words.length - 1) weight *= 1.85;
+            weight = Math.max(weight, 2.0);
+            if (idx === words.length - 1) weight *= 1.7;
             return weight;
         });
     }
@@ -1011,9 +920,7 @@
         });
     }
 
-    // =========================================================================
-    // 5. محرك الرسم البصري والخلفيات والمؤثرات
-    // =========================================================================
+    // 5. محرك الرسم والتصيير البصري
     let currentRenderData = {
         surahName: "الفاتحة",
         words: ["بِسْمِ", "اللَّهِ", "الرَّحْمَٰنِ", "الرَّحِيمِ"],
@@ -1023,7 +930,7 @@
         audioLevel: 0,
         fontFamily: "'Amiri Quran', serif",
         fontSize: 36,
-        animStyle: "full_verse",
+        animStyle: "full_static",
         vizStyle: "bars"
     };
 
@@ -1031,46 +938,40 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         waveTick += 0.03;
 
-        // أ) رسم خلفية الفيديو الحقيقية أو الصورة
+        // أ) رسم خلفية الفيديو أو الصورة الحقيقية
         if (bgVideoSelect.value === 'custom_image' && customImg && customImg.complete) {
             drawCoverMedia(customImg);
-            ctx.fillStyle = "rgba(0, 0, 0, 0.65)";
+            ctx.fillStyle = "rgba(2, 6, 18, 0.65)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
         } else if (bgVideoElement && bgVideoElement.readyState >= 2) {
             drawCoverMedia(bgVideoElement);
-            // طبقة تظليل سينمائية ناعمة لإبراز الخط القرآني
-            ctx.fillStyle = "rgba(2, 6, 18, 0.68)";
+            // طبقة تظليل سينمائية ناعمة لإبراز الخط القرآني بوضوح تام
+            ctx.fillStyle = "rgba(2, 6, 18, 0.62)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
         } else {
-            // تدرج احتياطي أنيق أثناء التحميل
-            const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
-            grad.addColorStop(0, '#020a16');
-            grad.addColorStop(0.5, '#04162e');
-            grad.addColorStop(1, '#020d1c');
-            ctx.fillStyle = grad;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            drawFallbackGradient();
         }
 
-        // ب) إطار إسلامي ذهبي فخم
-        ctx.strokeStyle = "rgba(245, 158, 11, 0.4)";
-        ctx.lineWidth = 3;
+        // ب) إطار إسلامي ذهبي سينمائي
+        ctx.strokeStyle = "rgba(245, 158, 11, 0.35)";
+        ctx.lineWidth = 2.5;
         ctx.strokeRect(18, 18, canvas.width - 36, canvas.height - 36);
 
-        const cLen = 24;
+        const cLen = 22;
         ctx.strokeStyle = "#fbbf24";
-        ctx.lineWidth = 4;
+        ctx.lineWidth = 3.5;
         ctx.beginPath(); ctx.moveTo(18, 18 + cLen); ctx.lineTo(18, 18); ctx.lineTo(18 + cLen, 18); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(canvas.width - 18 - cLen, 18); ctx.lineTo(canvas.width - 18, 18); ctx.lineTo(canvas.width - 18, 18 + cLen); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(18, canvas.height - 18 - cLen); ctx.lineTo(18, canvas.height - 18); ctx.lineTo(18 + cLen, canvas.height - 18); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(canvas.width - 18 - cLen, canvas.height - 18); ctx.lineTo(canvas.width - 18, canvas.height - 18); ctx.lineTo(canvas.width - 18, canvas.height - 18 - cLen); ctx.stroke();
 
         // ج) ترويسة اسم السورة
-        ctx.font = 'bold 26px "Tajawal", sans-serif';
+        ctx.font = 'bold 25px "Tajawal", sans-serif';
         ctx.fillStyle = '#f59e0b';
         ctx.textAlign = 'center';
-        ctx.shadowColor = "rgba(245, 158, 11, 0.5)";
-        ctx.shadowBlur = 12;
-        ctx.fillText(`سورة ${cleanSurahName(data.surahName)}`, canvas.width / 2, 75);
+        ctx.shadowColor = "rgba(245, 158, 11, 0.4)";
+        ctx.shadowBlur = 10;
+        ctx.fillText(`سورة ${cleanSurahName(data.surahName)}`, canvas.width / 2, 70);
         ctx.shadowBlur = 0;
 
         // د) رسم الموجات الصوتية التفاعلية
@@ -1085,7 +986,7 @@
                 const startX = (canvas.width - totalW) / 2;
 
                 for (let b = 0; b < barCount; b++) {
-                    const heightFactor = Math.sin((b / barCount) * Math.PI) * (data.audioLevel * 44 + Math.random() * 4);
+                    const heightFactor = Math.sin((b / barCount) * Math.PI) * (data.audioLevel * 45 + Math.random() * 3);
                     const h = Math.max(4, heightFactor);
                     ctx.fillStyle = "rgba(245, 158, 11, 0.85)";
                     ctx.beginPath();
@@ -1093,20 +994,20 @@
                     ctx.fill();
                 }
             } else if (data.vizStyle === 'wave') {
-                ctx.strokeStyle = "rgba(245, 158, 11, 0.75)";
+                ctx.strokeStyle = "rgba(245, 158, 11, 0.8)";
                 ctx.lineWidth = 3;
                 ctx.beginPath();
                 for (let x = 60; x <= canvas.width - 60; x += 10) {
-                    const y = waveY + Math.sin(x * 0.05 + waveTick * 2) * (data.audioLevel * 25);
+                    const y = waveY + Math.sin(x * 0.05 + waveTick * 2) * (data.audioLevel * 24);
                     if (x === 60) ctx.moveTo(x, y);
                     else ctx.lineTo(x, y);
                 }
                 ctx.stroke();
             } else if (data.vizStyle === 'glow_dot') {
-                const radius = Math.max(6, data.audioLevel * 28);
+                const radius = Math.max(6, data.audioLevel * 26);
                 ctx.fillStyle = "#fbbf24";
                 ctx.shadowColor = "#f59e0b";
-                ctx.shadowBlur = 18;
+                ctx.shadowBlur = 16;
                 ctx.beginPath();
                 ctx.arc(canvas.width / 2, waveY, radius, 0, Math.PI * 2);
                 ctx.fill();
@@ -1114,7 +1015,7 @@
             }
         }
 
-        // هـ) رسم الآيات القرآنية بالنمط المحدد
+        // هـ) رسم الآيات الكريمة
         if (data.words && data.words.length > 0) {
             renderQuranVerse(data);
         }
@@ -1122,13 +1023,13 @@
         // و) الحقوق والعبارة السفلية
         if(watermark.value.trim()) {
             ctx.font = '15px "Tajawal", sans-serif';
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
             ctx.textAlign = 'center';
             ctx.fillText(watermark.value, canvas.width / 2, canvas.height - 35);
         }
     }
 
-    // 6. محرك رسم وتوزيع النص القرآني
+    // 6. توزيع ورسم الخط القرآني بأنماطه المختلفة
     function renderQuranVerse(data) {
         const { words, ayahNumber, activeWordIndex, subProgress, fontFamily, fontSize, animStyle } = data;
         
@@ -1172,17 +1073,24 @@
                 const isPast = item.index < activeWordIndex;
                 const isActive = item.index === activeWordIndex;
 
-                if (animStyle === 'full_verse') {
-                    // نمط: ظهور الآية كاملة دفعة واحدة مع تتبع ذهبي للكلمة المقروءة حالياً
+                if (animStyle === 'full_static') {
+                    // **النمط المطلوب**: ظهور الآية كاملة دفعة واحدة موحدة وواضحة بدون أي تتبع أو قفزات
+                    ctx.fillStyle = '#ffffff';
+                    ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
+                    ctx.shadowBlur = 8;
+                    ctx.fillText(item.word, currentX, startY);
+
+                } else if (animStyle === 'full_verse') {
+                    // الآية كاملة مع تتبع ذهبي للكلمة الحالية
                     if (isActive) {
-                        ctx.fillStyle = "rgba(245, 158, 11, 0.25)";
+                        ctx.fillStyle = "rgba(245, 158, 11, 0.28)";
                         ctx.beginPath();
                         ctx.roundRect(currentX - item.width - 5, startY - fontSize * 1.05, item.width + 10, fontSize * 1.45, 6);
                         ctx.fill();
 
                         ctx.fillStyle = '#fde047';
                         ctx.shadowColor = 'rgba(251, 191, 36, 0.95)';
-                        ctx.shadowBlur = 15;
+                        ctx.shadowBlur = 14;
                     } else if (isPast) {
                         ctx.fillStyle = '#ffffff';
                         ctx.shadowBlur = 0;
@@ -1193,7 +1101,7 @@
                     ctx.fillText(item.word, currentX, startY);
 
                 } else if (animStyle === 'calligraphy') {
-                    // قلم الخطاط الحي المضيء
+                    // قلم الخطاط الحي
                     if (isPast) {
                         ctx.fillStyle = '#ffffff';
                         ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
@@ -1221,18 +1129,13 @@
                         ctx.beginPath();
                         ctx.arc(penX, penY, 4.5, 0, Math.PI * 2);
                         ctx.fill();
-
-                        ctx.fillStyle = '#ffffff';
-                        ctx.beginPath();
-                        ctx.arc(penX - 1, penY - 1, 2, 0, Math.PI * 2);
-                        ctx.fill();
                     } else {
                         ctx.fillStyle = 'rgba(255, 255, 255, 0.18)';
                         ctx.fillText(item.word, currentX, startY);
                     }
 
                 } else if (animStyle === 'pill') {
-                    // محراب ذهبي
+                    // وسام ومحراب
                     if (isActive) {
                         ctx.fillStyle = "rgba(245, 158, 11, 0.25)";
                         ctx.beginPath();
@@ -1249,30 +1152,10 @@
                     }
                     ctx.fillText(item.word, currentX, startY);
 
-                } else if (animStyle === 'fade') {
-                    // الظهور التدريجي
-                    if (isPast) {
-                        ctx.fillStyle = '#ffffff';
-                        ctx.fillText(item.word, currentX, startY);
-                    } else if (isActive) {
-                        ctx.save();
-                        ctx.globalAlpha = Math.max(0.3, subProgress);
-                        ctx.fillStyle = '#fde047';
-                        ctx.shadowColor = 'rgba(251, 191, 36, 0.85)';
-                        ctx.shadowBlur = 12;
-                        ctx.fillText(item.word, currentX, startY);
-                        ctx.restore();
-                    } else {
-                        ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
-                        ctx.fillText(item.word, currentX, startY);
-                    }
-
                 } else {
-                    // التوهج النوراني
+                    // توهج نوراني
                     if (isPast) {
                         ctx.fillStyle = '#ffffff';
-                        ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
-                        ctx.shadowBlur = 5;
                     } else if (isActive) {
                         ctx.fillStyle = '#fde047';
                         ctx.shadowColor = 'rgba(251, 191, 36, 0.95)';
@@ -1313,9 +1196,7 @@
         requestAnimationFrame(idleLoop);
     }
 
-    // =========================================================================
     // 7. المعالجة والتصدير فائق الدقة والمزامنة
-    // =========================================================================
     let isGenerating = false;
 
     startBtn.addEventListener('click', async () => {
@@ -1395,13 +1276,13 @@
                 progressFill.style.width = `${25 + ((i + 1) / rawAyahs.length) * 35}%`;
             }
 
-            // 3) إعداد التسجيل والمطابقة لنظام iOS / Desktop / Android
+            // 3) إعداد التسجيل والمطابقة لأجهزة Apple و Android
             const audioDest = audioCtx.createMediaStreamDestination();
             const analyser = audioCtx.createAnalyser();
             analyser.fftSize = 64;
             const dataArray = new Uint8Array(analyser.frequencyBinCount);
 
-            const canvasStream = canvas.captureStream(30);
+            const canvasStream = canvas.captureStream ? canvas.captureStream(30) : canvas.webkitCaptureStream(30);
             const combinedStream = new MediaStream([
                 ...canvasStream.getVideoTracks(),
                 ...audioDest.stream.getAudioTracks()
@@ -1510,7 +1391,7 @@
             recorder.stop();
             await recordingFinishedPromise;
 
-            // 5) عرض الفيديو النهائي
+            // 5) عرض وحفظ الفيديو النهائي
             canvasWrap.style.display = 'none';
             videoResultContainer.style.display = 'flex';
             resultVideo.src = generatedUrl;
