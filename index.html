@@ -445,15 +445,15 @@
     <a href="#studio" class="nav-btn"><i class="fa-solid fa-wand-magic-sparkles"></i> استوديو الإنتاج</a>
 </nav>
 
-<!-- عنصر فيديو الخلفية مع دعم كامل لجميع المتصفحات دون كتم أو حظر -->
+<!-- عنصر فيديو الخلفية الداخلي -->
 <video id="bgVideoElement" loop muted playsinline webkit-playsinline crossorigin="anonymous"></video>
 
 <div class="container">
     <section class="hero-section">
-        <div class="badge-pro"><i class="fa-solid fa-film"></i> توليد فيديوهات قرآنية بخلفيات طبيعية وسينمائية حقيقية 100%</div>
-        <h1 class="hero-title">صانع فيديوهات القرآن بخلفيات شواطئ وطبيعة حقيقية مع عرض الآية كاملة</h1>
+        <div class="badge-pro"><i class="fa-solid fa-film"></i> توليد فيديوهات قرآنية بخلفيات طبيعية نقية 100% بدون علامات مائية</div>
+        <h1 class="hero-title">صانع فيديوهات القرآن بمشاهد الطبيعة الخاصة بك مع عرض الآية كاملة</h1>
         <p class="hero-desc">
-            أنشئ مقاطع وتلاوات قرآنية خاشعة بجودة فائقة تناسب إنستغرام ريلز، تيك توك، ويوتيوب، مع إمكانية عرض الآية كاملة دفعة واحدة بخط عثماني أصيل ومزامنة صوتية كاملة.
+            أنشئ مقاطع وتلاوات قرآنية خاشعة فائقة الجودة تناسب إنستغرام ريلز، تيك توك، ويوتيوب، مع إمكانية عرض الآية كاملة دفعة واحدة بخط عثماني أصيل ومزامنة صوتية كاملة.
         </p>
     </section>
 
@@ -547,18 +547,18 @@
                 <div class="ratio-btn" data-w="720" data-h="720">⏹️ بوست مربع (1:1)</div>
             </div>
 
-            <!-- 5. خلفيات الطبيعة الحقيقية 100% -->
-            <div class="section-title"><i class="fa-solid fa-video"></i> 4. مشاهد وخلفيات الطبيعة الحقيقية (Real 4K/HD Footage)</div>
+            <!-- 5. خلفيات الفيديو من مستودع GitHub -->
+            <div class="section-title"><i class="fa-solid fa-video"></i> 4. مشاهد وخلفيات الفيديو من مجلد (videos/)</div>
             <div class="form-group">
-                <label>اختر مشهد الطبيعة الحقيقي</label>
+                <label>اختر مشهد الطبيعة</label>
                 <select id="bgVideoSelect">
-                    <option value="beach" selected>🏖️ شاطئ البحر وأمواجه الذهبية الهادئة (Real Beach Footage)</option>
-                    <option value="ocean_waves">🌊 تلاطم أمواج المحيط الصافية (Real Ocean Waves)</option>
-                    <option value="waterfall">🌲 شلال طبيعي وغابات خضراء خاشعة (Real Waterfall Footage)</option>
-                    <option value="sunset_clouds">🌅 سحب الغروب والشفق الذهبي الحقيقي (Real Sunset Clouds)</option>
-                    <option value="calm_rain">🌧️ قطرات المطر الحقيقية الهادئة (Real Calming Rain)</option>
-                    <option value="stars">🌌 سماء النجوم والمجرة الكونية (Real Galaxy Night Sky)</option>
-                    <option value="custom_video">📁 رفع فيديو حقيقي من جهازك أو جوالك (MP4 / MOV)...</option>
+                    <option value="beach" selected>🏖️ شاطئ البحر والأمواج (videos/beach.mp4)</option>
+                    <option value="ocean_waves">🌊 تلاطم أمواج المحيط (videos/ocean.mp4)</option>
+                    <option value="waterfall">🌲 الشلال والطبيعة الخضراء (videos/waterfall.mp4)</option>
+                    <option value="sunset_clouds">🌅 سحب الغروب والشفق (videos/sunset.mp4)</option>
+                    <option value="calm_rain">🌧️ قطرات المطر الهادئة (videos/rain.mp4)</option>
+                    <option value="stars">🌌 سماء النجوم والمجرة (videos/stars.mp4)</option>
+                    <option value="custom_video">📁 رفع فيديو فوري من جوالك/جهازك (MP4 / MOV)...</option>
                     <option value="custom_image">🖼️ رفع صورة ثابتة مخصصة من جهازك...</option>
                 </select>
             </div>
@@ -668,14 +668,14 @@
     let previewAudioObj = null;
     let waveTick = 0;
 
-    // روابط فيديوهات طبيعية حقيقية 100% مجربة وسريعة مع تصريح CORS كامل متوافق مع GitHub و Apple و Android
-    const realNatureVideos = {
-        beach: 'https://raw.githubusercontent.com/mawaqit/mobile-assets/main/weather-videos/sunny.mp4',
-        ocean_waves: 'https://raw.githubusercontent.com/mawaqit/mobile-assets/main/weather-videos/cloudy.mp4',
-        waterfall: 'https://raw.githubusercontent.com/mawaqit/mobile-assets/main/weather-videos/overcast.mp4',
-        sunset_clouds: 'https://raw.githubusercontent.com/mawaqit/mobile-assets/main/weather-videos/cloudy.mp4',
-        calm_rain: 'https://raw.githubusercontent.com/mawaqit/mobile-assets/main/weather-videos/rain.mp4',
-        stars: 'https://raw.githubusercontent.com/mawaqit/mobile-assets/main/weather-videos/thunderstorm.mp4'
+    // مسارات الفيديوهات المحلية من مجلد videos/ داخل مستودع GitHub
+    const localNatureVideos = {
+        beach: 'videos/beach.mp4',
+        ocean_waves: 'videos/ocean.mp4',
+        waterfall: 'videos/waterfall.mp4',
+        sunset_clouds: 'videos/sunset.mp4',
+        calm_rain: 'videos/rain.mp4',
+        stars: 'videos/stars.mp4'
     };
 
     function updateBackgroundVideoSource() {
@@ -697,7 +697,7 @@
             return;
         }
 
-        const src = realNatureVideos[val];
+        const src = localNatureVideos[val];
         if (src) {
             bgVideoElement.crossOrigin = "anonymous";
             bgVideoElement.playsInline = true;
@@ -707,13 +707,15 @@
             bgVideoElement.loop = true;
             bgVideoElement.src = src;
             bgVideoElement.load();
-            bgVideoElement.play().catch(()=>{});
+            bgVideoElement.play().catch(()=>{
+                // في حال كان المتصفح ينتظر نقرة أولى
+            });
         }
     }
 
     bgVideoSelect.addEventListener('change', updateBackgroundVideoSource);
 
-    // تفعيل تشغيل الفيديو فور أي لمس أو نقر للمتصفحات الصارمة مثل سفاري
+    // تفعيل تشغيل الفيديو فور نقر المستخدم لأجل أمان متصفح Safari على iOS
     document.addEventListener('click', () => {
         if (bgVideoElement.paused && bgVideoSelect.value !== 'custom_image') {
             bgVideoElement.play().catch(()=>{});
@@ -742,7 +744,7 @@
         }
     });
 
-    // رسم الفيديو لتغطية الشاشة بالكامل بدون تشويه
+    // ملء الشاشة بالفيديو مع الحفاظ على الأبعاد الحقيقية بدون تشويه
     function drawCoverMedia(media) {
         const mw = media.videoWidth || media.naturalWidth || media.width;
         const mh = media.videoHeight || media.naturalHeight || media.height;
@@ -1219,7 +1221,7 @@
             await audioCtx.resume();
         }
 
-        // تشغيل خلفية الفيديو أثناء التوليد
+        // تشغيل الفيديو أثناء المعالجة
         if (bgVideoElement && bgVideoSelect.value !== 'custom_image') {
             bgVideoElement.play().catch(()=>{});
         }
