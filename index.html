@@ -445,12 +445,12 @@
     <a href="#studio" class="nav-btn"><i class="fa-solid fa-wand-magic-sparkles"></i> استوديو الإنتاج</a>
 </nav>
 
-<!-- عنصر فيديو الخلفية الداخلي -->
+<!-- عنصر فيديو الخلفية -->
 <video id="bgVideoElement" loop muted playsinline webkit-playsinline crossorigin="anonymous"></video>
 
 <div class="container">
     <section class="hero-section">
-        <div class="badge-pro"><i class="fa-solid fa-film"></i> توليد فيديوهات قرآنية بخلفيات طبيعية نقية 100% بدون علامات مائية</div>
+        <div class="badge-pro"><i class="fa-solid fa-film"></i> توليد فيديوهات قرآنية بخلفياتك الطبيعية وبدون علامات مائية</div>
         <h1 class="hero-title">صانع فيديوهات القرآن بمشاهد الطبيعة الخاصة بك مع عرض الآية كاملة</h1>
         <p class="hero-desc">
             أنشئ مقاطع وتلاوات قرآنية خاشعة فائقة الجودة تناسب إنستغرام ريلز، تيك توك، ويوتيوب، مع إمكانية عرض الآية كاملة دفعة واحدة بخط عثماني أصيل ومزامنة صوتية كاملة.
@@ -547,17 +547,17 @@
                 <div class="ratio-btn" data-w="720" data-h="720">⏹️ بوست مربع (1:1)</div>
             </div>
 
-            <!-- 5. خلفيات الفيديو من مستودع GitHub -->
-            <div class="section-title"><i class="fa-solid fa-video"></i> 4. مشاهد وخلفيات الفيديو من مجلد (videos/)</div>
+            <!-- 5. خلفيات الفيديو المباشرة في مستودع GitHub -->
+            <div class="section-title"><i class="fa-solid fa-video"></i> 4. مشاهد وخلفيات الفيديو الطبيعية</div>
             <div class="form-group">
                 <label>اختر مشهد الطبيعة</label>
                 <select id="bgVideoSelect">
-                    <option value="beach" selected>🏖️ شاطئ البحر والأمواج (videos/beach.mp4)</option>
-                    <option value="ocean_waves">🌊 تلاطم أمواج المحيط (videos/ocean.mp4)</option>
-                    <option value="waterfall">🌲 الشلال والطبيعة الخضراء (videos/waterfall.mp4)</option>
-                    <option value="sunset_clouds">🌅 سحب الغروب والشفق (videos/sunset.mp4)</option>
-                    <option value="calm_rain">🌧️ قطرات المطر الهادئة (videos/rain.mp4)</option>
-                    <option value="stars">🌌 سماء النجوم والمجرة (videos/stars.mp4)</option>
+                    <option value="beach" selected>🏖️ شاطئ البحر والأمواج (beach.mp4)</option>
+                    <option value="ocean_waves">🌊 تلاطم أمواج المحيط (ocean.mp4)</option>
+                    <option value="waterfall">🌲 الشلال والطبيعة الخضراء (waterfall.mp4)</option>
+                    <option value="sunset_clouds">🌅 سحب الغروب والشفق (sunset.mp4)</option>
+                    <option value="calm_rain">🌧️ قطرات المطر الهادئة (rain.mp4)</option>
+                    <option value="stars">🌌 سماء النجوم والمجرة (stars.mp4)</option>
                     <option value="custom_video">📁 رفع فيديو فوري من جوالك/جهازك (MP4 / MOV)...</option>
                     <option value="custom_image">🖼️ رفع صورة ثابتة مخصصة من جهازك...</option>
                 </select>
@@ -668,14 +668,14 @@
     let previewAudioObj = null;
     let waveTick = 0;
 
-    // مسارات الفيديوهات المحلية من مجلد videos/ داخل مستودع GitHub
+    // مسارات الفيديوهات مباشرة في المستودع بدون أي مجلد
     const localNatureVideos = {
-        beach: 'videos/beach.mp4',
-        ocean_waves: 'videos/ocean.mp4',
-        waterfall: 'videos/waterfall.mp4',
-        sunset_clouds: 'videos/sunset.mp4',
-        calm_rain: 'videos/rain.mp4',
-        stars: 'videos/stars.mp4'
+        beach: 'beach.mp4',
+        ocean_waves: 'ocean.mp4',
+        waterfall: 'waterfall.mp4',
+        sunset_clouds: 'sunset.mp4',
+        calm_rain: 'rain.mp4',
+        stars: 'stars.mp4'
     };
 
     function updateBackgroundVideoSource() {
@@ -707,15 +707,13 @@
             bgVideoElement.loop = true;
             bgVideoElement.src = src;
             bgVideoElement.load();
-            bgVideoElement.play().catch(()=>{
-                // في حال كان المتصفح ينتظر نقرة أولى
-            });
+            bgVideoElement.play().catch(()=>{});
         }
     }
 
     bgVideoSelect.addEventListener('change', updateBackgroundVideoSource);
 
-    // تفعيل تشغيل الفيديو فور نقر المستخدم لأجل أمان متصفح Safari على iOS
+    // تفعيل تشغيل الفيديو فور أي لمس أو نقرة لأجل أمان Safari على أجهزة Apple
     document.addEventListener('click', () => {
         if (bgVideoElement.paused && bgVideoSelect.value !== 'custom_image') {
             bgVideoElement.play().catch(()=>{});
@@ -744,7 +742,7 @@
         }
     });
 
-    // ملء الشاشة بالفيديو مع الحفاظ على الأبعاد الحقيقية بدون تشويه
+    // رسم الفيديو ليملأ الشاشة بدقة مع الحفاظ على الأبعاد بدون تشويه
     function drawCoverMedia(media) {
         const mw = media.videoWidth || media.naturalWidth || media.width;
         const mh = media.videoHeight || media.naturalHeight || media.height;
@@ -952,7 +950,6 @@
             ctx.fillRect(0, 0, canvas.width, canvas.height);
         } else if (bgVideoElement && bgVideoElement.readyState >= 2) {
             drawCoverMedia(bgVideoElement);
-            // طبقة تظليل سينمائية ناعمة لإبراز الخط القرآني بوضوح تام
             ctx.fillStyle = "rgba(2, 6, 18, 0.62)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
         } else {
@@ -1036,7 +1033,7 @@
         }
     }
 
-    // 6. توزيع ورسم الخط القرآني بأنماطه المختلفة
+    // 6. توزيع ورسم الخط القرآني
     function renderQuranVerse(data) {
         const { words, ayahNumber, activeWordIndex, subProgress, fontFamily, fontSize, animStyle } = data;
         
@@ -1081,14 +1078,13 @@
                 const isActive = item.index === activeWordIndex;
 
                 if (animStyle === 'full_static') {
-                    // نمط: ظهور الآية كاملة دفعة واحدة موحدة وواضحة بدون أي تشتيت
+                    // نمط: الآية كاملة دفعة واحدة واضحة وبدون تشتيت
                     ctx.fillStyle = '#ffffff';
                     ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
                     ctx.shadowBlur = 8;
                     ctx.fillText(item.word, currentX, startY);
 
                 } else if (animStyle === 'full_verse') {
-                    // الآية كاملة مع تتبع ذهبي للكلمة الحالية
                     if (isActive) {
                         ctx.fillStyle = "rgba(245, 158, 11, 0.28)";
                         ctx.beginPath();
@@ -1108,7 +1104,6 @@
                     ctx.fillText(item.word, currentX, startY);
 
                 } else if (animStyle === 'calligraphy') {
-                    // قلم الخطاط الحي
                     if (isPast) {
                         ctx.fillStyle = '#ffffff';
                         ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
@@ -1142,7 +1137,6 @@
                     }
 
                 } else if (animStyle === 'pill') {
-                    // وسام ومحراب
                     if (isActive) {
                         ctx.fillStyle = "rgba(245, 158, 11, 0.25)";
                         ctx.beginPath();
@@ -1160,7 +1154,6 @@
                     ctx.fillText(item.word, currentX, startY);
 
                 } else {
-                    // توهج نوراني
                     if (isPast) {
                         ctx.fillStyle = '#ffffff';
                     } else if (isActive) {
@@ -1221,7 +1214,6 @@
             await audioCtx.resume();
         }
 
-        // تشغيل الفيديو أثناء المعالجة
         if (bgVideoElement && bgVideoSelect.value !== 'custom_image') {
             bgVideoElement.play().catch(()=>{});
         }
@@ -1252,13 +1244,11 @@
         }
 
         try {
-            // 1) جلب النصوص القرآنية
             const res = await fetch(`https://api.alquran.cloud/v1/surah/${sNum}/quran-uthmani`);
             const qData = await res.json();
             const rawAyahs = qData.data.ayahs.filter(a => a.numberInSurah >= start && a.numberInSurah <= end);
             const surahNameClean = cleanSurahName(qData.data.name);
 
-            // 2) تحميل الملفات الصوتية وفك تشفيرها
             statusText.innerText = "جاري فك التشفير الصوتي وحساب أزمنة التلاوة والمدود...";
             progressFill.style.width = "25%";
 
@@ -1288,7 +1278,6 @@
                 progressFill.style.width = `${25 + ((i + 1) / rawAyahs.length) * 35}%`;
             }
 
-            // 3) إعداد التسجيل والمطابقة لأجهزة Apple و Android
             const audioDest = audioCtx.createMediaStreamDestination();
             const analyser = audioCtx.createAnalyser();
             analyser.fftSize = 64;
@@ -1332,7 +1321,6 @@
             statusText.innerText = "جاري تصيير ومزامنة الفيديو القرآني بدقة...";
             progressFill.style.width = "65%";
 
-            // 4) تلاوة متتابعة ومزامنة لحظية
             for (let idx = 0; idx < ayahsAudioData.length; idx++) {
                 const item = ayahsAudioData[idx];
                 
@@ -1403,7 +1391,6 @@
             recorder.stop();
             await recordingFinishedPromise;
 
-            // 5) عرض وحفظ الفيديو النهائي
             canvasWrap.style.display = 'none';
             videoResultContainer.style.display = 'flex';
             resultVideo.src = generatedUrl;
