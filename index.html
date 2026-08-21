@@ -416,12 +416,16 @@
             transition: width 0.25s ease;
         }
 
+        /* تصحيح عنصر الفيديو لمنع تجميد المعالج في أجهزة Apple و Android */
         #bgVideoElement {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            opacity: 0.01;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 320px;
+            height: 180px;
+            opacity: 0.001;
             pointer-events: none;
+            z-index: -9999;
         }
 
         footer {
@@ -437,7 +441,6 @@
 </head>
 <body>
 
-<!-- شريط التنقل العلوي -->
 <nav class="navbar">
     <a href="#" class="nav-logo">
         <i class="fa-solid fa-quran"></i> منصة إحسان <span class="nav-badge">Pro 2026</span>
@@ -445,15 +448,15 @@
     <a href="#studio" class="nav-btn"><i class="fa-solid fa-wand-magic-sparkles"></i> استوديو الإنتاج</a>
 </nav>
 
-<!-- عنصر فيديو الخلفية -->
-<video id="bgVideoElement" loop muted playsinline webkit-playsinline crossorigin="anonymous"></video>
+<!-- عنصر فيديو الخلفية مع كافة وسوم التشغيل المباشر -->
+<video id="bgVideoElement" autoplay loop muted playsinline webkit-playsinline preload="auto" crossorigin="anonymous"></video>
 
 <div class="container">
     <section class="hero-section">
-        <div class="badge-pro"><i class="fa-solid fa-film"></i> توليد فيديوهات قرآنية بخلفياتك الطبيعية وبدون علامات مائية</div>
-        <h1 class="hero-title">صانع فيديوهات القرآن بمشاهد الطبيعة الخاصة بك مع عرض الآية كاملة</h1>
+        <div class="badge-pro"><i class="fa-solid fa-film"></i> توليد فيديوهات قرآنية بخلفيات متحركة حية 100%</div>
+        <h1 class="hero-title">صانع فيديوهات القرآن بخلفيات طبيعية متحركة مع عرض الآية كاملة</h1>
         <p class="hero-desc">
-            أنشئ مقاطع وتلاوات قرآنية خاشعة فائقة الجودة تناسب إنستغرام ريلز، تيك توك، ويوتيوب، مع إمكانية عرض الآية كاملة دفعة واحدة بخط عثماني أصيل ومزامنة صوتية كاملة.
+            أنشئ مقاطع وتلاوات قرآنية خاشعة فائقة الجودة بخلفيات فيديو حية تتحرك بسلاسة مع التلاوة وبدون أي علامة مائية.
         </p>
     </section>
 
@@ -547,8 +550,8 @@
                 <div class="ratio-btn" data-w="720" data-h="720">⏹️ بوست مربع (1:1)</div>
             </div>
 
-            <!-- 5. خلفيات الفيديو المباشرة في مستودع GitHub -->
-            <div class="section-title"><i class="fa-solid fa-video"></i> 4. مشاهد وخلفيات الفيديو الطبيعية</div>
+            <!-- 5. خلفيات الفيديو -->
+            <div class="section-title"><i class="fa-solid fa-video"></i> 4. مشاهد وخلفيات الفيديو الطبيعية الحية</div>
             <div class="form-group">
                 <label>اختر مشهد الطبيعة</label>
                 <select id="bgVideoSelect">
@@ -629,7 +632,6 @@
 </div>
 
 <script>
-    // العناصر الرئيسية
     const surahSelect = document.getElementById('surahSelect');
     const fromAyah = document.getElementById('fromAyah');
     const toAyah = document.getElementById('toAyah');
@@ -668,7 +670,7 @@
     let previewAudioObj = null;
     let waveTick = 0;
 
-    // مسارات الفيديوهات مباشرة في المستودع بدون أي مجلد
+    // مسارات الفيديوهات المباشرة
     const localNatureVideos = {
         beach: 'beach.mp4',
         ocean_waves: 'ocean.mp4',
@@ -689,36 +691,39 @@
             return;
         }
 
+        let src = '';
         if (val === 'custom_video') {
-            if (customVideoUrl) {
-                bgVideoElement.src = customVideoUrl;
-                bgVideoElement.play().catch(()=>{});
-            }
-            return;
+            if (customVideoUrl) src = customVideoUrl;
+        } else {
+            src = localNatureVideos[val];
         }
 
-        const src = localNatureVideos[val];
         if (src) {
             bgVideoElement.crossOrigin = "anonymous";
-            bgVideoElement.playsInline = true;
-            bgVideoElement.setAttribute('playsinline', '');
-            bgVideoElement.setAttribute('webkit-playsinline', '');
             bgVideoElement.muted = true;
             bgVideoElement.loop = true;
+            bgVideoElement.playsInline = true;
             bgVideoElement.src = src;
             bgVideoElement.load();
-            bgVideoElement.play().catch(()=>{});
+            const playPromise = bgVideoElement.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {});
+            }
         }
     }
 
     bgVideoSelect.addEventListener('change', updateBackgroundVideoSource);
 
-    // تفعيل تشغيل الفيديو فور أي لمس أو نقرة لأجل أمان Safari على أجهزة Apple
-    document.addEventListener('click', () => {
-        if (bgVideoElement.paused && bgVideoSelect.value !== 'custom_image') {
-            bgVideoElement.play().catch(()=>{});
+    // تفعيل التشغيل الحي للفيديو فور التفاعل مع الصفحة
+    function ensureVideoIsPlaying() {
+        if (bgVideoSelect.value !== 'custom_image' && bgVideoElement.src) {
+            if (bgVideoElement.paused) {
+                bgVideoElement.play().catch(() => {});
+            }
         }
-    }, { once: true });
+    }
+    document.addEventListener('touchstart', ensureVideoIsPlaying, { passive: true });
+    document.addEventListener('click', ensureVideoIsPlaying, { passive: true });
 
     videoFileInput.addEventListener('change', (e) => {
         const file = e.target.files[0];
@@ -726,6 +731,7 @@
             if (customVideoUrl) URL.revokeObjectURL(customVideoUrl);
             customVideoUrl = URL.createObjectURL(file);
             bgVideoElement.src = customVideoUrl;
+            bgVideoElement.load();
             bgVideoElement.play().catch(()=>{});
         }
     });
@@ -742,7 +748,7 @@
         }
     });
 
-    // رسم الفيديو ليملأ الشاشة بدقة مع الحفاظ على الأبعاد بدون تشويه
+    // رسم الفيديو المتحرك ليملأ مساحة الشاشة بالكامل دون تشويه
     function drawCoverMedia(media) {
         const mw = media.videoWidth || media.naturalWidth || media.width;
         const mh = media.videoHeight || media.naturalHeight || media.height;
@@ -814,7 +820,7 @@
     }
     surahSelect.addEventListener('change', updateLimits);
 
-    // 2. الاستماع التجريبي لصوت القارئ
+    // 2. استماع تجريبي للقارئ
     previewAudioBtn.addEventListener('click', () => {
         if (previewAudioObj) {
             previewAudioObj.pause();
@@ -841,7 +847,7 @@
         };
     });
 
-    // 3. أبعاد ومقاسات الفيديو
+    // 3. أبعاد الفيديو
     document.querySelectorAll('.ratio-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             document.querySelectorAll('.ratio-btn').forEach(b => b.classList.remove('active'));
@@ -852,7 +858,7 @@
         });
     });
 
-    // 4. خوارزمية التوقيت والمدود الصوتية
+    // 4. تحليل النطق والأزمنة
     function analyzeAudioSpeechBounds(audioBuffer) {
         const channelData = audioBuffer.getChannelData(0);
         const sampleRate = audioBuffer.sampleRate;
@@ -925,7 +931,7 @@
         });
     }
 
-    // 5. محرك الرسم والتصيير البصري
+    // 5. محرك الرسم والتصيير البصري الحي
     let currentRenderData = {
         surahName: "الفاتحة",
         words: ["بِسْمِ", "اللَّهِ", "الرَّحْمَٰنِ", "الرَّحِيمِ"],
@@ -943,20 +949,24 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         waveTick += 0.03;
 
-        // أ) رسم خلفية الفيديو أو الصورة الحقيقية
+        // أ) رسم خلفية الفيديو المتحركة حياً أو الصورة
         if (bgVideoSelect.value === 'custom_image' && customImg && customImg.complete) {
             drawCoverMedia(customImg);
             ctx.fillStyle = "rgba(2, 6, 18, 0.65)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
         } else if (bgVideoElement && bgVideoElement.readyState >= 2) {
+            // ضمان استمرار حركة الفيديو دون توقف
+            if (bgVideoElement.paused) {
+                bgVideoElement.play().catch(()=>{});
+            }
             drawCoverMedia(bgVideoElement);
-            ctx.fillStyle = "rgba(2, 6, 18, 0.62)";
+            ctx.fillStyle = "rgba(2, 6, 18, 0.60)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
         } else {
             drawFallbackGradient();
         }
 
-        // ب) إطار إسلامي ذهبي سينمائي
+        // ب) إطار إسلامي ذهبي
         ctx.strokeStyle = "rgba(245, 158, 11, 0.35)";
         ctx.lineWidth = 2.5;
         ctx.strokeRect(18, 18, canvas.width - 36, canvas.height - 36);
@@ -978,7 +988,7 @@
         ctx.fillText(`سورة ${cleanSurahName(data.surahName)}`, canvas.width / 2, 70);
         ctx.shadowBlur = 0;
 
-        // د) رسم الموجات الصوتية التفاعلية
+        // د) رسم الموجات الصوتية
         if (data.audioLevel > 0 && data.vizStyle !== 'none') {
             const waveY = canvas.height - 85;
             
@@ -1024,16 +1034,16 @@
             renderQuranVerse(data);
         }
 
-        // و) الحقوق والعبارة السفلية
+        // و) الحقوق
         if(watermark.value.trim()) {
             ctx.font = '15px "Tajawal", sans-serif';
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
             ctx.textAlign = 'center';
             ctx.fillText(watermark.value, canvas.width / 2, canvas.height - 35);
         }
     }
 
-    // 6. توزيع ورسم الخط القرآني
+    // 6. رسم النص القرآني
     function renderQuranVerse(data) {
         const { words, ayahNumber, activeWordIndex, subProgress, fontFamily, fontSize, animStyle } = data;
         
@@ -1078,7 +1088,7 @@
                 const isActive = item.index === activeWordIndex;
 
                 if (animStyle === 'full_static') {
-                    // نمط: الآية كاملة دفعة واحدة واضحة وبدون تشتيت
+                    // نمط: الآية كاملة واضحة وموحدة بدون تشتيت
                     ctx.fillStyle = '#ffffff';
                     ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
                     ctx.shadowBlur = 8;
@@ -1182,7 +1192,7 @@
         });
     }
 
-    // المعاينة الحية المستمرة
+    // حلقة التحديث المستمر
     function idleLoop() {
         if (!isGenerating) {
             const s = surahsList.find(x => x.number == surahSelect.value);
@@ -1196,7 +1206,7 @@
         requestAnimationFrame(idleLoop);
     }
 
-    // 7. المعالجة والتصدير فائق الدقة والمزامنة
+    // 7. المعالجة والتصدير فائق الدقة
     let isGenerating = false;
 
     startBtn.addEventListener('click', async () => {
@@ -1214,7 +1224,9 @@
             await audioCtx.resume();
         }
 
+        // تشغيل وضبط الفيديو المتحرك قبل بدء التسجيل
         if (bgVideoElement && bgVideoSelect.value !== 'custom_image') {
+            bgVideoElement.currentTime = 0;
             bgVideoElement.play().catch(()=>{});
         }
 
@@ -1434,7 +1446,7 @@
         }
     });
 
-    // زر إعادة الضبط
+    // إعادة الضبط
     resetBtn.addEventListener('click', () => {
         videoResultContainer.style.display = 'none';
         canvasWrap.style.display = 'flex';
@@ -1443,7 +1455,7 @@
         resultVideo.src = "";
     });
 
-    // بدء التشغيل
+    // بدء التشغيل التلقائي
     loadSurahs();
     updateBackgroundVideoSource();
     idleLoop();
